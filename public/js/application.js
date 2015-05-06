@@ -18,7 +18,6 @@ var create = function(e) {
   })
 }
 
-
 var addEvent = function(data){
   data = JSON.parse(data)
   $('.eventName').prepend(data.name)
