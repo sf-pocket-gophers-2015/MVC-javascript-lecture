@@ -1,7 +1,27 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  bindListeners()
+  console.log("load")
 });
+
+var bindListeners = function(){
+  $('.createForm').bind('submit', create)
+}
+
+var create = function(e) {
+  e.preventDefault()
+  $.ajax({
+    url: '/events/create',
+    method: 'POST',
+    data: $(this).serialize() 
+  }).done(function(data){
+    addEvent(data)
+  })
+}
+
+
+var addEvent = function(data){
+  data = JSON.parse(data)
+  $('.eventName').prepend(data.name)
+  $('.eventDate').prepend(data.date)
+}
+
