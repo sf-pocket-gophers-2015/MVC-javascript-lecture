@@ -14,6 +14,14 @@ var create = function(e) {
     method: 'POST',
     data: $(this).serialize() 
   }).done(function(data){
-    console.log(data)
+    addEvent(data)
   })
 }
+
+
+var addEvent = function(data){
+  data = JSON.parse(data)
+  $('.eventName').prepend(data.name)
+  $('.eventDate').prepend(data.date)
+}
+

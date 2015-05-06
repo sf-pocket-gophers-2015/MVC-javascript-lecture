@@ -1,7 +1,10 @@
 <h1>My Schedule</h1>
 <%= erb :_new %>
-
-<% @events.each do |event| %>
-  <h2><%= event.name %></h2>
-  <p><%= event.date %></p>
-<% end %>
+<h2 class="eventName"></h1>
+<p class="eventDate"></p>
+<div class="events">
+  <% @events.each do |event| %>
+    <h2><%= event.name %></h2>
+    <p><%= event.date %></p>
+  <% end %>
+</div>
