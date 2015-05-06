@@ -1,11 +1,8 @@
 $(document).ready(function() {
-  bindListeners()
-  console.log("load")
+  var view = new View
+  var model = new Model
+  var controller = new Controller(view, model)
 });
-
-var bindListeners = function(){
-  $('.createForm').bind('submit', create)
-}
 
 var create = function(e) {
   e.preventDefault()
@@ -24,3 +21,4 @@ var addEvent = function(data){
   $('.eventDate').prepend(data.date)
 }
 
+var test = console.log("test")
