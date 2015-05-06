@@ -4,10 +4,16 @@ $(document).ready(function() {
 });
 
 var bindListeners = function(){
-  $('.submit').bind('click', create)
+  $('.createForm').bind('submit', create)
 }
 
-var create = function(e){
-  console.log(e)
+var create = function(e) {
   e.preventDefault()
+  $.ajax({
+    url: '/events/create',
+    method: 'POST',
+    data: $(this).serialize() 
+  }).done(function(data){
+    console.log(data)
+  })
 }
