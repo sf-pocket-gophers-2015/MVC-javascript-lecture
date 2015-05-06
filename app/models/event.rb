@@ -1,3 +1,5 @@
 class Event < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :name, uniqueness: true
 end
