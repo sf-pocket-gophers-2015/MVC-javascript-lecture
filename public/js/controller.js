@@ -1,11 +1,25 @@
-var Controller = function(view, model){
-  this.view = new View()
-  this.model = new Model()
+function Controller(view, Event) {
+  this.view = view;
+  this.Event = Event;
 }
 
 Controller.prototype = {
+  
   bindListeners: function() {
-    test
-    $('.createForm').bind('submit', create)
+    var controller = this;
+    $('.createForm').on('submit', function(submitEvent){
+      submitEvent.preventDefault();
+      var data = $(this).serialize();
+      controller.createEvent(data);
+    });
+  },
+
+  createEvent: function(data) {
+    var view = this.view;
+    this.Event.create(data, function(event){
+      view.renderEvent(event);
+    });
   }
-}
+
+
+};
