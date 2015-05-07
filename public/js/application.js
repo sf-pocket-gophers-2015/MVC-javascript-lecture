@@ -3,15 +3,19 @@ $(document).ready(function() {
 });
 
 var bindListeners = function(){
-  $('.createForm').on('submit', create)
+  $('.createForm').on('submit', function(submitEvent){
+    submitEvent.preventDefault();
+    var data = $(this).serialize();
+    create(data)
+  })
 }
 
-var create = function(e) {
-  e.preventDefault()
+var create = function(data) {
   $.ajax({
     url: '/events/create',
     method: 'POST',
-    data: $(this).serialize() 
+    data: data,
+    dataType: 'json'
   }).done(function(data){
     addEvent(data)
   })
@@ -19,7 +23,6 @@ var create = function(e) {
 
 
 var addEvent = function(data){
-  data = JSON.parse(data)
   $('.eventName').prepend(data.name)
   $('.eventDate').prepend(data.date)
 }
