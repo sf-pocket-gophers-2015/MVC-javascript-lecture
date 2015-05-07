@@ -1,0 +1,2 @@
+var Controller = function() {
+}

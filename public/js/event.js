@@ -1,0 +1,2 @@
+var Event = function() {
+}
