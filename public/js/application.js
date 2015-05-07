@@ -1,10 +1,9 @@
 $(document).ready(function() {
   bindListeners()
-  console.log("load")
 });
 
 var bindListeners = function(){
-  $('.createForm').bind('submit', create)
+  $('.createForm').on('submit', create)
 }
 
 var create = function(e) {
