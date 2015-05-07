@@ -9,7 +9,6 @@ end
 
 post '/events/create' do
   event = Event.new(name: params[:name], date: params[:date])
-    event.save
   if event.save
     event.to_json
   else

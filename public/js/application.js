@@ -5,8 +5,5 @@ $(document).ready(function() {
   controller.bindListeners()
 });
 
-var addEvent = function(data){
-  $('.eventName').prepend(data.name)
-  $('.eventDate').prepend(data.date)
-}
+
 

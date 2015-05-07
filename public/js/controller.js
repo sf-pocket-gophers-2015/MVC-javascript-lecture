@@ -13,6 +13,10 @@ Controller.prototype = {
     })
   },
   createEvent: function(data) {
-    this.event.create(data)
+    debugger
+    var view = this.view
+    this.event.create(data, function(event){
+      view.renderEvent(event)
+    })
   }
 }
