@@ -8,6 +8,7 @@ get '/events/new' do
 end
 
 post '/events/create' do
+  p params
   event = Event.new(name: params[:name], date: params[:date])
   event.save
   event.to_json
